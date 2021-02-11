@@ -1,14 +1,12 @@
-import './loader.styles.scss';
+import "./loader.styles.scss"
 
-const Loaded = () => {
-  return (
-    <div className="loader">
-      <img 
-        src="https://dublindeck.com/wp-content/themes/dublinDeck/images/loading5.gif"
-        alt="loader"
-      />
-    </div>
-  );
-};
+const Loaded = () => (
+  <div className="loader">
+    <img
+      src="https://dublindeck.com/wp-content/themes/dublinDeck/images/loading5.gif"
+      alt="loader"
+    />
+  </div>
+)
 
-export default Loaded;
+export default Loaded

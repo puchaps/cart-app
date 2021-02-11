@@ -1,5 +1,12 @@
 .content-preview {
   width: 50%;
-  margin: 50px auto;
+  margin: 0 auto;
+  margin-top: 50px;
   
+  .content-total-price {
+    font-size: 24px;
+    margin-top: 15px;
+    text-align: right;
+    opacity: 0.7;
+  }
 }

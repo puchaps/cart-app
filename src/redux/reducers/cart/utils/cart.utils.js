@@ -1,33 +1,33 @@
-export const removeChoosedItemFromCllections = (currnetCollectios, choosedItem) => {
-  return currnetCollectios.filter(item => item.id !== choosedItem);
-};
+export const removeChoosedItemFromCllections = (
+  currnetCollectios,
+  choosedItem
+) => currnetCollectios.filter((item) => item.id !== choosedItem)
 
-export const increasinQuantityChoosedItem = (currnetCollectios, choosedItem) => {
-  return currnetCollectios.map( item => {
+export const increasinQuantityChoosedItem = (currnetCollectios, choosedItem) =>
+  currnetCollectios.map((item) => {
     if (item.id === choosedItem) {
       return {
         ...item,
-        quantity: item.quantity + 1
-      };
-    };
+        quantity: item.quantity + 1,
+      }
+    }
 
-    return item;
-  });
-};
+    return item
+  })
 
 export const reducingQuantityChoosedItem = (currnetCollectios, choosedItem) => {
   if (choosedItem.quantity <= 1) {
-    return currnetCollectios.filter( item => item.id !== choosedItem.id)
-  };
+    return currnetCollectios.filter((item) => item.id !== choosedItem.id)
+  }
 
-  return currnetCollectios.map( item => {
+  return currnetCollectios.map((item) => {
     if (item.id === choosedItem.id) {
       return {
         ...item,
-        quantity: item.quantity - 1
-      };
-    };
+        quantity: item.quantity - 1,
+      }
+    }
 
-    return item;
-  });
-};
+    return item
+  })
+}

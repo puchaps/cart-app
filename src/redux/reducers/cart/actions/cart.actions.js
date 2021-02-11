@@ -5,46 +5,43 @@ import {
   INCREASIN_QUANTITRY_CHOOSED_ITEM,
   REDUCING_QUANTITRY_CHOOSED_ITEM,
   REMOVE_CHOOSED_ITEM,
-  TOGGLE_LOADER
-} from "../types/cart.types";
+  TOGGLE_LOADER,
+} from "../types/cart.types"
 
-////////////////////--QUANTITY--////////////////////
+/// /////////////////--QUANTITY--////////////////////
 export const addedQuantityToItemAC = () => ({
-  type: ADDED_QUANTITY_TO_ITEM
-});
-////////////////////--QUANTITY--////////////////////
+  type: ADDED_QUANTITY_TO_ITEM,
+})
+/// /////////////////--QUANTITY--////////////////////
 
-
-////////////////////--COLLECTIOS--////////////////////
+/// /////////////////--COLLECTIOS--////////////////////
 export const addGetedCollectionsSuccsesAC = (collections) => ({
   type: ADD_GETED_COLLECTIONS_SUCCSES,
-  payload: collections
-});
+  payload: collections,
+})
 export const addGetedCollectionsFailedAC = (error) => ({
   type: ADD_GETED_COLLECTIONS_FAILED,
-  payload: error
-});
-////////////////////--COLLECTIOS--////////////////////
+  payload: error,
+})
+/// /////////////////--COLLECTIOS--////////////////////
 
-
-////////////////////--TOGGLE--////////////////////
+/// /////////////////--TOGGLE--////////////////////
 export const toggleLoaderAC = () => ({
-  type: TOGGLE_LOADER
-});
-////////////////////--TOGGLE--////////////////////
+  type: TOGGLE_LOADER,
+})
+/// /////////////////--TOGGLE--////////////////////
 
-
-////////////////////--CHANGE-COLLECTIONS--////////////////////
+/// /////////////////--CHANGE-COLLECTIONS--////////////////////
 export const removeChoosedItemAC = (choosedItem) => ({
   type: REMOVE_CHOOSED_ITEM,
-  payload: choosedItem
-});
+  payload: choosedItem,
+})
 export const increasinQuantityChoosedItemAC = (choosedItem) => ({
   type: INCREASIN_QUANTITRY_CHOOSED_ITEM,
-  payload: choosedItem
-});
+  payload: choosedItem,
+})
 export const reducingQuantityChoosedItemAC = (choosedItem) => ({
   type: REDUCING_QUANTITRY_CHOOSED_ITEM,
-  payload: choosedItem
-});
-////////////////////--CHANGE-COLLECTIONS--////////////////////
+  payload: choosedItem,
+})
+/// /////////////////--CHANGE-COLLECTIONS--////////////////////
