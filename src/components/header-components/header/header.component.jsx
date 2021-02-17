@@ -1,15 +1,16 @@
-import { connect } from "react-redux"
+import React from "react";
+import { connect } from "react-redux";
 
-import { selectorQuantityItemsCollections } from "../../../redux/reducers/cart/selectors/cart.selector"
+import { selectorQuantityItemsCollections } from "../../../redux/reducers/cart/selectors/cart.selector";
 
-import "./header.styles.scss"
+import "./header.styles.scss";
 
-const Header = ({ quantityCollections }) => (
+const Header = ({ onQuantityCollections }) => (
   <header className="header">
     <div className="header-content">
       <div className="header-logo">
         <img
-          src="https://www.flaticon.com/svg/vstatic/svg/3800/3800024.svg?token=exp=1612881037~hmac=207657aeea73aa4bce7f351a6e51a8ee"
+          src="https://cdn1.iconfinder.com/data/icons/social-58/128/Social-38-512.png"
           alt="logo"
         />
       </div>
@@ -20,18 +21,18 @@ const Header = ({ quantityCollections }) => (
         />
         <div
           className={`header-cart-quantity ${
-            quantityCollections >= 10 ? "more" : ""
+            onQuantityCollections >= 10 ? "more" : ""
           }`}
         >
-          {quantityCollections}
+          {onQuantityCollections}
         </div>
       </div>
     </div>
   </header>
-)
+);
 
 const mapStateToProps = (state) => ({
-  quantityCollections: selectorQuantityItemsCollections(state),
-})
+  onQuantityCollections: selectorQuantityItemsCollections(state),
+});
 
-export default connect(mapStateToProps)(Header)
+export default connect(mapStateToProps)(Header);

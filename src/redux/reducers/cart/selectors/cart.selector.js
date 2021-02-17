@@ -1,15 +1,15 @@
-import { createSelector } from "reselect"
+import { createSelector } from "reselect";
 
-const selectorCart = (state) => state.cart
+const selectorCart = (state) => state.cart;
 
 export const selectorCollections = createSelector([selectorCart], (cart) =>
   cart.collections ? cart.collections : []
-)
+);
 
 export const selectorLoader = createSelector(
   [selectorCart],
   (cart) => cart.loader
-)
+);
 
 export const selectorQuantityItemsCollections = createSelector(
   [selectorCollections],
@@ -20,7 +20,7 @@ export const selectorQuantityItemsCollections = createSelector(
           0
         )
       : []
-)
+);
 
 export const selectorTotalPrice = createSelector(
   [selectorCollections],
@@ -31,4 +31,4 @@ export const selectorTotalPrice = createSelector(
           0
         )
       : []
-)
+);

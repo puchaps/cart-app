@@ -1,4 +1,6 @@
-import "./loader.styles.scss"
+import React from "react";
+
+import "./loader.styles.scss";
 
 const Loaded = () => (
   <div className="loader">
@@ -7,6 +9,6 @@ const Loaded = () => (
       alt="loader"
     />
   </div>
-)
+);
 
-export default Loaded
+export default Loaded;

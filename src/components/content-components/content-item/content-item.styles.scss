@@ -20,7 +20,10 @@
     }
   }
 
-  .content-name, .content-price, .content-quantity, .content-remove {
+  .content-name,
+  .content-price,
+  .content-quantity,
+  .content-remove {
     font-size: 16px;
     opacity: 0.7;
   }
@@ -29,7 +32,8 @@
     display: flex;
     align-items: center;
 
-    .quantity-reducing, .quantity-increasing {
+    .quantity-reducing,
+    .quantity-increasing {
       font-size: 22px;
       cursor: pointer;
       transition: all 0.4s;
@@ -52,14 +56,14 @@
     cursor: pointer;
     border: 1px solid white;
     border-radius: 100%;
-    transition:  all 0.4s;
+    transition: all 0.4s;
 
     &:hover {
       transform: rotate(90deg);
       opacity: 1;
     }
   }
-};
+}
 
 @media screen and(max-width: 1024px) {
   .content-item {
@@ -71,7 +75,10 @@
       }
     }
 
-    .content-name, .content-price, .content-quantity, .content-remove {
+    .content-name,
+    .content-price,
+    .content-quantity,
+    .content-remove {
       font-size: 14px;
     }
 
@@ -86,7 +93,7 @@
       padding: 2px 5px 1px 5px;
     }
   }
-};
+}
 
 @media screen and(max-width: 768px) {
   .content-item {
@@ -98,7 +105,10 @@
       }
     }
 
-    .content-name, .content-price, .content-quantity, .content-remove {
+    .content-name,
+    .content-price,
+    .content-quantity,
+    .content-remove {
       font-size: 13px;
     }
 
@@ -113,7 +123,7 @@
       padding: 2px 5px 1px 5px;
     }
   }
-};
+}
 
 @media screen and(max-width: 650px) {
   .content-item {
@@ -125,7 +135,10 @@
       }
     }
 
-    .content-name, .content-price, .content-quantity, .content-remove {
+    .content-name,
+    .content-price,
+    .content-quantity,
+    .content-remove {
       margin-top: 7px;
       font-size: 18px;
     }
@@ -142,4 +155,4 @@
       padding: 2px 5px 1px 5px;
     }
   }
-};
+}

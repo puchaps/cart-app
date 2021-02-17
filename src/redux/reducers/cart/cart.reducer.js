@@ -1,70 +1,64 @@
 import {
-  ADD_GETED_COLLECTIONS_FAILED,
-  ADD_GETED_COLLECTIONS_SUCCSES,
-  INCREASIN_QUANTITRY_CHOOSED_ITEM,
-  REDUCING_QUANTITRY_CHOOSED_ITEM,
-  REMOVE_CHOOSED_ITEM,
+  ADD_COLLECTIONS_SUCCESS,
+  ADD_COLLECTIONS_FAILED,
+  ENLARGE_QUANTITY_CHOSEN_ITEM,
+  REDUCING_QUANTITY_CHOSEN_ITEM,
+  REMOVE_CHOSEN_ITEM,
   TOGGLE_LOADER,
-} from "./types/cart.types"
+} from "./types/cart.types";
 
 import {
-  increasinQuantityChoosedItem,
-  reducingQuantityChoosedItem,
-  removeChoosedItemFromCllections,
-} from "./utils/cart.utils"
+  enlargeQuantityItem,
+  reducingQuantityItem,
+  removeItemFromCollections,
+} from "./utils/cart.utils";
 
 const INITIAL_STATE = {
   collections: null,
   loader: false,
   error: null,
-}
+};
 
 const cartReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case ADD_GETED_COLLECTIONS_SUCCSES:
+    case ADD_COLLECTIONS_SUCCESS:
       return {
         ...state,
         collections: action.payload,
         error: null,
-      }
-    case ADD_GETED_COLLECTIONS_FAILED:
+      };
+    case ADD_COLLECTIONS_FAILED:
       return {
         ...state,
         collections: null,
         error: action.payload,
-      }
+      };
     case TOGGLE_LOADER:
       return {
         ...state,
         loader: !state.loader,
-      }
-    case INCREASIN_QUANTITRY_CHOOSED_ITEM:
+      };
+    case ENLARGE_QUANTITY_CHOSEN_ITEM:
       return {
         ...state,
-        collections: increasinQuantityChoosedItem(
+        collections: enlargeQuantityItem(state.collections, action.payload),
+      };
+    case REDUCING_QUANTITY_CHOSEN_ITEM:
+      return {
+        ...state,
+        collections: reducingQuantityItem(state.collections, action.payload),
+      };
+    case REMOVE_CHOSEN_ITEM:
+      return {
+        ...state,
+        collections: removeItemFromCollections(
           state.collections,
           action.payload
         ),
-      }
-    case REDUCING_QUANTITRY_CHOOSED_ITEM:
-      return {
-        ...state,
-        collections: reducingQuantityChoosedItem(
-          state.collections,
-          action.payload
-        ),
-      }
-    case REMOVE_CHOOSED_ITEM:
-      return {
-        ...state,
-        collections: removeChoosedItemFromCllections(
-          state.collections,
-          action.payload
-        ),
-      }
+      };
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default cartReducer
+export default cartReducer;

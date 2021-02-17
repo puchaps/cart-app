@@ -10,11 +10,12 @@
     justify-content: space-between;
   }
 
-  .header-logo, .header-cart-icon {
+  .header-logo,
+  .header-cart-icon {
     position: relative;
 
     img {
-      width: 35px
+      width: 35px;
     }
 
     .header-cart-quantity {
@@ -29,18 +30,18 @@
       left: 9px;
     }
   }
-};
+}
 
 @keyframes animationForQuantity {
-  0%{
+  0% {
     opacity: 0;
     transform: scale(0);
   }
-  100%{
+  100% {
     opacity: 1;
     transform: scale(1);
   }
-};
+}
 
 @media screen and(max-width: 1024px) {
   .header {
@@ -48,7 +49,8 @@
       width: 70%;
     }
 
-    .header-logo, .header-cart-icon {
+    .header-logo,
+    .header-cart-icon {
       img {
         width: 30px;
       }
@@ -63,4 +65,4 @@
       }
     }
   }
-};
+}

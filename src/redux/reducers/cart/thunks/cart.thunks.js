@@ -1,28 +1,28 @@
+/* eslint-disable no-debugger */
 import {
-  converdGetedSnapShotCollection,
-  getSnapShotCollectionFromFirestore,
-} from "../../../../firebase/firebase"
+  getSnapShotCollection,
+  getSnapShotCollectionFromDB,
+} from "../../../../firebase/firebase";
 
 import {
-  addGetedCollectionsFailedAC,
-  addGetedCollectionsSuccsesAC,
+  addCollectionsSuccessAC,
+  addCollectionsFailedAC,
   toggleLoaderAC,
-} from "../actions/cart.actions"
+} from "../actions/cart.actions";
 
-const setGetedCollectionsHatsThunk = () => async (dispatch) => {
+const getCollectionsHatsThunk = () => async (dispatch) => {
   try {
-    dispatch(toggleLoaderAC())
+    dispatch(toggleLoaderAC());
 
-    const snapShotHats = await getSnapShotCollectionFromFirestore()
-    const converdCollectionsHats = await converdGetedSnapShotCollection(
-      snapShotHats
-    )
+    const snapShotHats = await getSnapShotCollectionFromDB();
+    const transformCollectionsHats = await getSnapShotCollection(snapShotHats);
+    
+    dispatch(addCollectionsSuccessAC(transformCollectionsHats));
 
-    dispatch(addGetedCollectionsSuccsesAC(converdCollectionsHats))
-
-    dispatch(toggleLoaderAC())
+    dispatch(toggleLoaderAC());
   } catch (error) {
-    dispatch(addGetedCollectionsFailedAC(error.messages))
+    dispatch(addCollectionsFailedAC(error.messages));
   }
-}
-export default setGetedCollectionsHatsThunk
+};
+
+export default getCollectionsHatsThunk;

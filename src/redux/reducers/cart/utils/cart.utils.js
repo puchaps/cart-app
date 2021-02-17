@@ -1,33 +1,33 @@
-export const removeChoosedItemFromCllections = (
-  currnetCollectios,
-  choosedItem
-) => currnetCollectios.filter((item) => item.id !== choosedItem)
+export const removeItemFromCollections = (currentCollections, chosenItemId) => (
+  currentCollections.filter((item) => item.id !== chosenItemId)
+);
 
-export const increasinQuantityChoosedItem = (currnetCollectios, choosedItem) =>
-  currnetCollectios.map((item) => {
-    if (item.id === choosedItem) {
+export const enlargeQuantityItem = (currentCollections, chosenItemId) => (
+  currentCollections.map((item) => {
+    if (item.id === chosenItemId) {
       return {
         ...item,
         quantity: item.quantity + 1,
-      }
+      };
     }
 
-    return item
+    return item;
   })
+);
 
-export const reducingQuantityChoosedItem = (currnetCollectios, choosedItem) => {
-  if (choosedItem.quantity <= 1) {
-    return currnetCollectios.filter((item) => item.id !== choosedItem.id)
+export const reducingQuantityItem = (currentCollections, chosenItemId) => {
+  if (chosenItemId.quantity <= 1) {
+    return currentCollections.filter((item) => item.id !== chosenItemId.id);
   }
 
-  return currnetCollectios.map((item) => {
-    if (item.id === choosedItem.id) {
+  return currentCollections.map((item) => {
+    if (item.id === chosenItemId.id) {
       return {
         ...item,
         quantity: item.quantity - 1,
-      }
+      };
     }
 
-    return item
-  })
-}
+    return item;
+  });
+};

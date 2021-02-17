@@ -1,12 +1,12 @@
-import React from "react"
-import ReactDOM from "react-dom"
-import { Provider } from "react-redux"
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
 
-import "./index.styles.scss"
+import "./index.styles.scss";
 
-import store from "./redux/store/store"
+import store from "./redux/store/store";
 
-import App from "./App"
+import App from "./App";
 
 ReactDOM.render(
   <Provider store={store}>
@@ -15,4 +15,4 @@ ReactDOM.render(
     </React.StrictMode>
   </Provider>,
   document.getElementById("root")
-)
+);

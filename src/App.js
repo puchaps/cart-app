@@ -1,25 +1,25 @@
-import React, { useCallback, useEffect } from "react"
-import { connect } from "react-redux"
+import React, { useCallback, useEffect } from "react";
+import { connect } from "react-redux";
 
-import setGetedCollectionsHatsThunk from "./redux/reducers/cart/thunks/cart.thunks"
-import { selectorCollections, selectorLoader } from "./redux/reducers/cart/selectors/cart.selector"
+import getCollectionsHatsThunk from "./redux/reducers/cart/thunks/cart.thunks";
+import { selectorLoader } from "./redux/reducers/cart/selectors/cart.selector";
 
-import ContentPreview from "./components/content-componets/content-preview/content-preview.component"
-import Footer from "./components/footer-components/footer/footer.component"
-import Header from "./components/header-components/header/header.component"
-import Loader from "./components/loader/loader.component"
+import ContentPreview from "./components/content-components/content-preview/content-preview.component";
+import Footer from "./components/footer-components/footer/footer.component";
+import Header from "./components/header-components/header/header.component";
+import Loader from "./components/loader/loader.component";
 
-const App = ({ setCollectionHats, loader }) => {
-  const wrapperFunc = useCallback(() => {
-    setCollectionHats();
-  }, [setCollectionHats])
+const App = ({ onGetCollectionHats, onLoader }) => {
+  const handleGetCollections = useCallback(() => {
+    onGetCollectionHats();
+  }, [onGetCollectionHats]);
 
   useEffect(() => {
-    wrapperFunc();
-  }, [wrapperFunc])
+    handleGetCollections();
+  }, [handleGetCollections]);
 
-  if (loader) {
-    return <Loader />
+  if (onLoader) {
+    return <Loader />;
   }
 
   return (
@@ -28,16 +28,15 @@ const App = ({ setCollectionHats, loader }) => {
       <ContentPreview />
       <Footer />
     </>
-  )
-}
+  );
+};
 
 const mapStateToProps = (state) => ({
-  loader: selectorLoader(state),
-  collections: selectorCollections(state)
-})
+  onLoader: selectorLoader(state),
+});
 
 const mapDispatchToProps = (dispatch) => ({
-  setCollectionHats: () => dispatch(setGetedCollectionsHatsThunk()),
-})
+  onGetCollectionHats: () => dispatch(getCollectionsHatsThunk()),
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App);

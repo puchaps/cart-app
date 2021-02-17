@@ -1,5 +1,5 @@
-import firebase from "firebase/app"
-import "firebase/firestore"
+import firebase from "firebase/app";
+import "firebase/firestore";
 
 const CONFIG = {
   apiKey: "AIzaSyCV0wIPhKSmkmsZbAXplhRBtnXTMQO28Gk",
@@ -9,42 +9,40 @@ const CONFIG = {
   messagingSenderId: "170882576824",
   appId: "1:170882576824:web:a2994f04f3ebf7b3de9f4d",
   measurementId: "G-11D6BY3J66",
-}
+};
 
-firebase.initializeApp(CONFIG)
+firebase.initializeApp(CONFIG);
 
-export const FIRE_STORE = firebase.firestore()
+export const FIRE_STORE = firebase.firestore();
 
-export const addCollectionHatsInForeStore = async (
-  collectionName,
-  documentName
-) => {
-  const collectionRef = FIRE_STORE.collection(collectionName)
+export const addCollectionToDB = async (collectionName, documentName) => {
+  const collectionRef = FIRE_STORE.collection(collectionName);
 
-  const batch = FIRE_STORE.batch()
+  const batch = FIRE_STORE.batch();
 
   documentName.forEach((item) => {
-    const createRefInCollectionOnDocument = collectionRef.doc()
+    const createRefInCollectionOnDocument = collectionRef.doc();
 
-    batch.set(createRefInCollectionOnDocument, item)
-  })
+    batch.set(createRefInCollectionOnDocument, item);
+  });
 
-  return batch.commit()
-}
+  return batch.commit();
+};
 
-export const getSnapShotCollectionFromFirestore = () =>
+export const getSnapShotCollectionFromDB = () => (
   new Promise((resolve, reject) => {
-    const collectionRef = FIRE_STORE.collection("hats")
-    const collectionSnapShot = collectionRef.get()
+    const collectionRef = FIRE_STORE.collection("hats");
+    const collectionSnapShot = collectionRef.get();
 
     collectionSnapShot.then((snapShot) => {
-      resolve(snapShot)
-    }, reject)
+      resolve(snapShot);
+    }, reject);
   })
+);
 
-export const converdGetedSnapShotCollection = (getedSnapShot) => {
-  const converdCollection = getedSnapShot.docs.map((item) => {
-    const { name, price, imageUrl } = item.data()
+export const getSnapShotCollection = (snapShotFromDB) => {
+  const transformCollection = snapShotFromDB.docs.map((item) => {
+    const { name, price, imageUrl } = item.data();
 
     return {
       name,
@@ -52,8 +50,8 @@ export const converdGetedSnapShotCollection = (getedSnapShot) => {
       imageUrl,
       id: item.id,
       quantity: 1,
-    }
-  })
+    };
+  });
 
-  return converdCollection.filter((item, index) => index < 5)
-}
+  return transformCollection.filter((_, index) => index < 5);
+};
